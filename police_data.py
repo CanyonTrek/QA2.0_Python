@@ -25,7 +25,7 @@ base_url = r"https://data.police.uk/api/"
 def getPoliceForces():
     """ Display List of Police forces """
     try:
-        full_url = base_url + "fores"
+        full_url = base_url + "forces"
         force_data = requests.get(full_url) # HTTP GET url page.
 
         for force in force_data.json():
