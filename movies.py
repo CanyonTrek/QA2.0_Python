@@ -2,7 +2,7 @@
 # Author: DCameron, donald.cameron@qa.com, V1.0
 # Description: This program will 
 """
-    Docstring: This program/module will..
+    Docstring: Module to get Top 250 Movies Data
 """
 import sys
 import imdb
