@@ -26,6 +26,11 @@ temps = [row[5] for row in rows]
 
 print(temps)
 
-sns.lineplot(x=range(len(temps)), y=temps)
+#sns.lineplot(x=range(len(temps)), y=temps)
+cities = [ row[1] for row in rows]
+c_temps = [t - 273.15 for t in temps ]
+p= sns.barplot(x=cities, y =c_temps, )
+p.set_xlabel("City", fontsize = 20)
+p.set_ylabel("Temperature (C)", fontsize = 20)
 plt.show()
 
