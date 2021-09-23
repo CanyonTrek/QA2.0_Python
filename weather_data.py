@@ -50,7 +50,7 @@ def get_weather():
     country = input("Please enter a country (eg. gb/uk): ")
 
     base_url = r"http://api.openweathermap.org/data/2.5/weather?"
-    full_url = f"{base_url}q={city},{country},&appid={API_KEY}"
+    full_url = f"{base_url}q={city},{country}&appid={API_KEY}"
 
     try:
         weather_data = requests.get(full_url)

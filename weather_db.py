@@ -46,6 +46,18 @@ class Weather_db:
             self.cur.execute(f"""DROP TABLE IF EXISTS {table_name}""")
         return None
 
+    def query_and_return(self, table_name="weather"):
+        """ Query and return all rows as a list """
+        sql = f"SELECT * FROM {table_name}"
+        try:
+            self.cur.execute(sql)
+            rows = self.cur.fetchall()
+            print(type(rows))
+            return rows
+        except Exception as err:
+            print(f"Error accessing {table_name}: [{err}]\n", file=sys.stderr)
+            return None
+
     def query_all(self, table_name="weather"):
         """ Query and return all rows in formatted str output """
         sql = f"SELECT * FROM {table_name}"
@@ -114,5 +126,6 @@ class Weather_db:
 
     def __del__(self):
         """ Close connection automatically when object is deleted """
-        self.__db_conn.close()
+        if self.__db_conn:
+            self.__db_conn.close()
         return None
