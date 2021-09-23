@@ -28,3 +28,5 @@ https://github.com/alberanid/imdbpy
 #### requests - easier to use than standard library version
 
 https://docs.python-requests.org/en/latest/
+
+#### Seaborn graphics library - based on matplotlib but simpler commands for many graph types

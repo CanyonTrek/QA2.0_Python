@@ -11,7 +11,16 @@ import seaborn
 
 import weather_db as wd
 
-rows = wd.Weather_db.query_and_return('weather')
+db = wd.Weather_db()
+rows =db.query_and_return('weather')
+# rows of tuples - would it be better as dicts?
+# We could plot a barchart for cities - temperature or humidity
+# or a line graph of data over time
+# or a scatter plot ....
+# example - temp is the 6th item in each tuple, and is in Kelvin
+# opportunity for lambda to convert, and list comprehension
+# to get the items?
 
+temps = [row[5] for row in rows]
 
-
+print(temps)
