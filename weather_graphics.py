@@ -7,7 +7,8 @@
 # Retrieve weather data from the database
 #
 
-import seaborn
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 import weather_db as wd
 
@@ -24,3 +25,7 @@ rows =db.query_and_return('weather')
 temps = [row[5] for row in rows]
 
 print(temps)
+
+sns.lineplot(x=range(len(temps)), y=temps)
+plt.show()
+
