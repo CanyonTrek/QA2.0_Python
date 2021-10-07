@@ -1,0 +1,163 @@
+﻿,,,SARAH - COMPLETE THIS,Donalds Choice,Sarah's Choice
+,,Python 3 day course,QA2.0 Python Digital,QA2.0 LIVE Digital,QA2.0 LIVE Digital
+,,Topics covered,Topics Covered,Topics Covered,Topics Covered
+Chapter 1,Intro to Py3,History/Benefits,y,,n/a
+,,Cpython/Jython/Iron Python,n,,n/a
+,,Zen of Python,n,,n/a
+,,Performance Pros & Cons,partial,,n/a
+,,Community,n,,n/a
+,,Downloads and links,y,,n/a
+,,Running Python command line,n,,n/a
+,,Running IDLE,y,,n/a
+,,Python Help/PEP 008,n,,n/a
+,,Anatomy of Py Program,partial - script shown,,n/a
+,,Built-in Functions,n,,n/a
+,,Importing Modules,n,,n/a
+,,,,,
+Chapter 2,Fundamental,"What is an object, type,state,identity",not in those words,,"more on objects, maybe in OOP section"
+,Variables,Declaring/deleting variables,y,,n 
+,,local/global,n (better later?),,"need more, in functions section"
+,,Naming Variables/dunderscores,y,,"worth adding more, I'd do the dunderscores with classes/modules, but could be here"
+,,Methods/dir()/help(),y (and input and print),,n
+,,Operators & Type,y,,n
+,,Augmented Assignments,n (better later?),,could mention
+,,Python 3 Types - Numeric/Strings,y,,"the mutable/unmutable/sequence slide might be good in live, they'd have touched on the different items by then"
+,,Python 3 Types - Sequences,just list,,
+,,Python 3 Types - Mutable/Immutable,n,,"all following in collections, they've seen the basics but can build on it"
+,,Switching Types/Conversion Functions,y,,
+,,Python Lists introduced,y,,
+,,Python Tuples introduced,n,,
+,,Python Dictionaries introduced,n,,
+,,Python Operators,y,,
+,,Python Reserved Words Reference,n ,,do with help('keywords')
+,,,,,
+Chapter 3,Flow Control,Py if/elif/else,y,,n
+,,Py 'in' operator,y,,done but good to use 
+,,Indentation/PEP 8,y,,PEP 8 in more detail
+,,What is TRUE/FALSE,y,,
+,,Boolean/Logical Operators,y,,
+,,Chained Comparisons,n,,
+,,Collection test (in/any/all),n,,need to do
+,,Comparing objects/Conv functions,y,,
+,,Note on Exception Handling,n (done in mod 8),,
+,,While loops,y,,
+,,continue/break/pass,n,,show use
+,,Counter for loops/range function,y,,
+,,Iterator for loops,y,,
+,,enumerate function,n,,"not done in digital, useful"
+,,zip function,n,,"not done in digital, useful"
+,,Conditional expressions/shortcuts,n,,
+,,sys.exit()/quit()/exit(),n,,not done in digital
+,,,,,
+Chapter 4,Str Handling,Py strings - Unicode support,y,,"done, just use when useful?"
+,,Unicode escape chars,y,,
+,,chr() function,y,,
+,,print() function & named parameters,y,,
+,,Escaping characters,y,,
+,,str concatenation,y,,
+,,Single/Double/Triple Quotes,y,,
+,,Str methods,y,,
+,,str '*' repetition,n,,
+,,str tests,n,,
+,,str formatting methods,just f strings,,
+,,str formatting .format() method,n,,"maybe they still need older methods, will see in old code"
+,,str formatting f-strings,y,,
+,,str Py % formatting,n,,
+,,str slicing,y,,
+,,str indexing,y,,
+,,str split() and join(),n,,need tp cover
+,,,,,
+Chapter 5,Collections,Builtin Functions len/min/max/sum,y,,all this section was done very simpley and can be built on
+,,"Tuple operations, swapping, repetition",n,,
+,,Careful trailing comma,n,,
+,,Tuple indexing/slicing/methods,y,,
+,,List indexing/Slicing,y,,
+,,Deleting elements,n,,
+,,Unpacking to a wildcard,n,,
+,,List methods - all of them,n (some),,
+,,Dictionaries - Methods,n,,
+,,Dictionary creation & Indexing,y,,
+,,Sets & Operators & Methods,y,,
+,,Multi-dimensional indexing,n,,
+,,Removing items from dictionary,n,,
+,,,,,
+Chapter 6 ,Regular,Regex Theory - BRE/ERE/Py assertions,n,,Nothing in digital on REGEX
+,Expressions,Regex module,n,,
+,,Match/Search/Substitutinn,n,,
+,,Pre-compiling,n,,
+,,,,,
+,,,,,
+Chapter 7,Data Storage &,"Open() function, named parameters",y,,
+,File Handling,File Handle objects and close(),y,,
+,,Sequential writing,y,,
+,,Sequential reading,y,,
+,,Context Resource Manaher (with statement),y,,
+,,Random read/write with seek/tell,n,,"No randon access or binary files in digital. Not sure needed for work applications, could be further reading?"
+,,pickle,n,,
+,,shelve,n,,
+,,compression,n,,
+,,,,,
+Chapter 8,Functions,Define and call function,y,,"Functions done at minimal level, all this section can build on it"
+,,Positional/Named/Mixed parameters,n,,
+,,Default parameters,n,,
+,,Variadic Functiions *tuple and **kwargs,n,,
+,,Returning Objects,y,,
+,,Variable Scope/Globals/Locals,n,,
+,,Nested Functions,n,,
+,,Function DocStrings,y,,
+,,Lambda Functions,n,,
+,,,,,
+Chapter 9,Advanced,Filter function,n,,"If wanted, can  be covered, wasn't in digital. So could be we know lists, here's a way to make new lists from ols etc"
+,Collections,List/Dict/Set Comprehensions,n,,
+,,Laxy Lists,n,,
+,,Generator Functions,n,,
+,,Copying Collections ref/shallow/deep,n,,
+,,,,,
+,,,,,
+Chapter 10,Modules &,Packages,y,,Again they should have basic familiarity from digital but build in more detail in live
+,Packages,Modules/Programs,y,,
+,,Importing,y,,
+,,Namespaces,partial (ie import and import as,,
+,,Directories as Packages,n (might have changed),,
+,,Module Structure/if __name__,n,,
+,,Module Documentation,n,,
+,,Module Profiling,n,,
+,,Module Debugging,n,,
+,,Module Unit Testing,mentioned only,,
+,,,,,
+Chapter 11,Classes & OOP,OOP,n,,All to do in live
+,,Class and Objects,n,,
+,,Defining Class,n,,
+,,__init__ and self,n,,
+,,Defining Methods,n,,
+,,Constructing an Object,n,,
+,,Special Methods,n,,
+,,Duck Typing,n,,
+,,Operator Overloading,n,,
+,,Getter/Setter Methods,n,,
+,,Properties and decorators,n,,
+,,Inheritance,n,,
+,,,,,
+Chapter 12,Error Handling &,Stdout/Stderr,n,,This is more linuxy? 
+,Exceptions,Warnings Module,n,,"I'd like more discussion of error handling strategy, maybe logging, and raise and traceback nice"
+,,Exception Handling,y,,
+,,try/except/except/else/finally,y,,
+,,Order of execution,n,,
+,,Exception err object,n,,
+,,Py 3 Exception Hierarchy,n,,
+,,Raise statement,n,,
+,,Raising user exceptions,n,,
+,,Getting Tracebacks,n,,
+,,,,,
+Chapter 13 ,Multi-tasking,Process Life - Parent/child,n,,"We did agree that this would be out, early on. Could be further reading?"
+,,Creating a child Process - os,n,,
+,,Creating a child Process - subprocess,n,,
+,,Catching return status,n,,
+,,Catching stdout/stderr,n,,
+,,Single/Multi threading,n,,
+,,Thread module,n,,
+,,Multi-process module,n,,
+,,Locks,n,,
+,,Queue objects,n,,
+,,,,,
+Chapter 14,Py Standard Library,,y,,Used some but always more you can do with this.
