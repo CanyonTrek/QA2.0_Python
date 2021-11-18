@@ -1,0 +1,231 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Courier New;}{\f2\fswiss\fprq2\fcharset0 Calibri;}}
+{\colortbl ;\red0\green64\blue80;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Miro Board for Python in Practice\par
+Cards for functions \par
+
+\pard\sa200\sl276\slmult1\b Card 1 Functions\line Review of digital, example and what next?\b0\line Earlier in the DIGITAL session, you learned about functions and how useful they are for making code sharable and reusable. \par
+You saw function definitions, passing parameters to a function, returning a value from a function, and documenting functions with doctrings.  This is already useful, and you can do more.\par
+You will learn about different types of parameters, variable scope, the idea of annotating functions, lambda functions, and using functions as objects. This includes passing a function as a parameter and returning a function from another function.\b\par
+Code example we saw earlier \b0 - a function that converts miles to kilometres.\par
+\par
+Notice\par
+
+\pard 
+{\pntext\f0 1.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pndec{\pntxta.}}
+\fi-360\li720\sa200\sl276\slmult1     the keyword \b def\b0  - we are defining a function\par
+{\pntext\f0 2.\tab}    the \b function name \b0 miles2km - our choice of name\par
+{\pntext\f0 3.\tab}    the \b parameter\b0  n which is the number of miles to convert\par
+{\pntext\f0 4.\tab}    the \b docstring\b0  immediately after the def statement, explaining the function to people using it.\par
+{\pntext\f0 5.\tab}    the return value - keyword \b return \b0 - which is the calculated number of kilometres\par
+
+\pard\sa200\sl276\slmult1 Code:\par
+
+\pard\sa200\sl240\slmult1 def miles2km(n):\par
+    """\par
+    miles2km takes a number of  miles and returns the equivalent\par
+    number of kilometres. The conversion factor is 1.609\par
+\par
+    """\par
+    km = 1.609 * n\par
+    return km\par
+
+\pard\sa200\sl276\slmult1 ----------------------------------------------------------------------------------------------------------------------\par
+\b Card 2 Parameters\par
+\b0 Covering What are parameters?\~, Parameters vs arguments, Positional/Keyword arguments, Default values , Forcing keyword arguments: why and how?, Variadic functions.\par
+\b Functions: Parameters, arguments, and return values\par
+\b0 Functions are objects in Python. They are defined with the def statement, followed by the argument list.\par
+\b What is the difference between arguments and parameters? \par
+\b0 You will see both terms used for data passed into a function, but generally parameters are what you use when defining a function, and arguments are the actual data you pass in when you call the function.\par
+Python arguments can be given by position or by name.\par
+A function with the definition line \par
+\tab\b def my_func(a, b): \par
+\b0 could be called with \par
+\tab\b my_func(5,6). \b0 Then a would be 5 and b would be 6. \par
+You could also call it with named parameters, as \par
+\tab\b my_func(b=6, a=5) \par
+\b0 Then since you are using the names, the order does not matter.\par
+\b Default parameters\b0\par
+You can define a function with default parameters, which will be used if the caller does not provide the argument. You do this by defining the function with the parameters set to equal a value as \par
+\b\tab def myfunc(a=0, b=1): \par
+\b0 Then if the caller provides a and b they are used, and if not, the defaults are used, in this case 0 and 1. \par
+A familiar example is the print() built in function, which has default values for several parameters. One is 'sep' the separator,  which is a space by default, but you can call print and set the sep parameter, eg print("test", "test", sep=":")\par
+\b Force keyword arguments - why and how\b0\par
+
+\pard\sa200\sl276\slmult1 You can force programmers to call your functions with named arguments. The syntax for this is an * by itself, before all arguments that need keywords.\par
+You might want to do this if the arguments could easily be confused and be put in the wrong order.\par
+\b def fn(*, a,b,c): \par
+\b0 defines a function that can only be called using the names -\par
+ fn(1,2,3) will give an error,\par
+ fn(a=1, b=2, c=3) will work. \par
+
+\pard\sa200\sl276\slmult1\par
+\b Return values\par
+\b0 We have seen functions that return a value to the caller using the return statement. \par
+This is optional. If there is no return statement the function returns the empty object None. \par
+If the function does return a value, it can be any Python object, including containers like dicts or even other functions.\par
+
+\pard\sa200\sl276\slmult1\b Argument unpacking\b0  \par
+
+\pard\sa200\sl276\slmult1 If your function needs 3 parameters and you have then in a list or tuple, you can pass the list of tuple to be 'unpacked' into the variables. \par
+The syntax is an asterisk. So if the function fn needs arguments a,b,c and you have a tuple t = (1,2,3) and you write fn(*t) then the three elements of t become the 3 arguments to the function.\par
+\b Variadic fuctions\b0\par
+Variadic functions can take a variable number of arguments. To do this, you either:\par
+prefix a parameter with a * in the function definition. This passes the arguments as a tuple.\par
+or:\par
+
+\pard\sa200\sl276\slmult1 prefix a parameter with a ** in the function definition. This passes the arguments as a dict, with keys the argument names, and values the argument values.\par
+You can then extract all the arguments in the function.\par
+
+\pard\sa200\sl276\slmult1 :\par
+
+\pard\sa200\sl240\slmult1 def add(*nums):\par
+    sum = 0\par
+     for i in nums:\par
+         sum += i\par
+    return sum\par
+
+\pard\sa200\sl276\slmult1 _________________________________________________________________________\par
+\b Card 3 Scope\par
+Covering Function scope, global scope, functions altering variables outside functions.\par
+\b0 Scope is about which parts of your program can see a variable.\par
+If a variable is defined in a function, it has '\b function scope\b0 ' and can't be seen outside the function. Usually it doesn't even exist once the function finishes running.\par
+This is good, as it means that your computer memory is not full of variables defined in functions that you no longer need. Python has a 'garbage collecter' that removes variables you no longer need, and if this is not done the memory use goes up and the program could slow down.\par
+If you need a function to access variables outside itself, you can give them \b global scope\b0 . It is usually better and clearer to pass anything your function needs in as a parameter and avoid global scope.\par
+Code examples - try these! In cope_test1 the variable called result inside the function is not the same as the outside variable also called result, in scope_test2 the global keyword lets the function alter the external variable.\par
+
+\pard\cf1\kerning24\f1\fs24\lang1033 result = 3\par
+\fs16\par
+\fs24 def scope_test1():    \par
+   result = 42\par
+\fs16\par
+\fs24 scope_test1()\par
+print(result)\par
+\par
+def scope_test2():    \par
+   \b global\b0  result\par
+   result = 42\par
+\fs16\par
+\fs24 scope_test2()\par
+print(result)\lang2057\par
+
+\pard\sa200\sl276\slmult1\cf0\kerning0\f0\fs22\lang9\par
+
+\pard\sa200\sl276\slmult1\b Can a Python function change variables in the outside code (the calling program)?\par
+\b0 If they are mutable, yes. \par
+A function with a list argument could change the original list it was sent. It couldn't do that for a tuple (which is immutable). In the list_param function below, the results list  from outside the function is altered even though the function has no return value.\par
+It is safer and clearer to send a function a copy of the data, and return any changes we need, and not allow a function to change variables outside itself.\par
+
+\pard\cf1\kerning24\f1\fs24\lang1033 results = [3,2,6,9]\par
+results2 = (3,2,6,9)\par
+\fs16\par
+\fs24 def list_param(a_list):    \par
+   a_list[0] = 42\par
+\fs16\par
+\fs24 list_param(results)\par
+print(result)\par
+\par
+def tuple_param(a_tuple):    \par
+   temp = list(a_tuple)\b\par
+\b0    temp[0] = 42\par
+\par
+\fs22 tuple_param(results2)\par
+\fs24 print(results)\lang2057\par
+
+\pard\sa200\sl276\slmult1\cf0\kerning0\f0\fs22\lang9\par
+
+\pard\sa200\sl276\slmult1 ----------------------------------------------------------------------------------------------\par
+\b Card 4 - annotations\par
+Covering annotations and type hints, Why use them? Optional extra.\par
+\b0 In many programming languages you have to state the data type type of each parameter and return value for a function. In Python you don't. Our miles2km function had only the parameter name n, any kind of value could have been sent to the function.\par
+But you can add type hints and comments to parameters and return values. These are collected in the __annotations__ special attribute . They are usually used for documentation, and sometimes for checking that variable types are as expected. They are optional and have no effect on the way the Python interpreter runs the function.\par
+\b Code example - a useless function!\par
+
+\pard\sa200\sl240\slmult1 def fred(a:int, b:"Any old thing") -> str:\par
+\tab pass\par
+
+\pard\sa200\sl276\slmult1\cf1\kerning24\b0\lang2057 Look at fred.__annotations__ and help(fred)\par
+____________________________________________________________\par
+\cf0\kerning0\b\lang9 Card 5 Lambda functions\b0\par
+Lambda functions - what are they and where might you use them?\par
+Lambda functions are short anonymous (nameless) functions.\par
+Syntax:\par
+\b lambda arguments : expression\b0\par
+The expression tells you what to do to the arguments to get the return value. \par
+\b lambda x : x + 3 \b0 adds 3 to its argument\par
+\b lambda x, y : x > y \b0 returns True or False depending on its arguments\par
+Lambda functions are often used for sorting, or in the map and the filter functions.\par
+Examples of use:\par
+Here we are providing a sort key as a lambda function to sort a list of lists by the integer value of the second field in each list.\par
+
+\pard\cf1\kerning24\f1\fs24\lang1033 countries = []\par
+for line in open('country.txt'):\par
+    countries.append(line.split(','))\par
+\par
+countries.sort(key=lambda c: int(c[1]))\par
+\par
+for line in countries:\par
+    print(','.join(line), end='')\lang2057\par
+
+\pard\sa200\sl276\slmult1\cf0\kerning0\f0\fs22\lang9\line Or using map to apply a simple function to each element in the source list:\par
+
+\pard\cf1\kerning24\f1\fs24\lang1033 source_list = [1,2,3,4]\par
+new_list = list(map(lambda a: a+1, source_list))\par
+
+\pard\sa200\sl276\slmult1\cf0\kerning0\f0\fs22\lang9\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b\f2 Card 6 - Nested functions\par
+\b0 A function is an object in Python. \par
+\b You can set a variable\b0  to a function, eg a = len \par
+\b You can pass a function to another function as a parameter\b0 .\par
+Code example\par
+
+\pard\nowidctlpar\sa200\sl240\slmult1\f1 def apply_fn(fn, data):\par
+    return fn(data)\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\f2 Try this with len and \lquote teststring\rquote  , or int and 37.9\par
+\b You can define a function inside another function. \b0 This is called a nested function.\par
+Code example:\par
+
+\pard\nowidctlpar\sa200\sl240\slmult1\f1\lang2057 def outer():\par
+    num = 42\par
+    def inner():\par
+        print(num, "in inner")\par
+        \par
+    inner()\par
+    print(num, "in outer")\par
+
+\pard\nowidctlpar\sa200\f2   \par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\b\lang9 and you can return a function from a function as a return value\b0 .\par
+Code example:\par
+
+\pard\nowidctlpar\sa200\f1\lang2057 def outer():\par
+    num = 42\par
+    def inner():\par
+        print(num, "in inner")\par
+
+\pard\brdrb\brdrs\brdrw15\brsp20 \nowidctlpar\sa200     return inner\lang9\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1\f2 Functions exercises:\par
+Quiz\par
+Basic\par
+
+\pard 
+{\pntext\f2 1.\tab}{\*\pn\pnlvlbody\pnf2\pnindent0\pnstart1\pndec{\pntxta.}}
+\nowidctlpar\fi-360\li720\sa200\sl240\slmult1 Write a function that takes two parameters and returns the average of two numbers.\par
+{\pntext\f2 2.\tab}Add a docstring to the function.\par
+{\pntext\f2 3.\tab}Make it variadic, so that it can work out the average of any number of numbers, not just two.\par
+{\pntext\f2 4.\tab}Add type hints or annotations saying that the function expects floats and will return a float. \par
+{\pntext\f2 5.\tab}Show the annotations and the docstring using help()\par
+
+\pard\nowidctlpar\sa200\sl240\slmult1\par
+
+\pard\nowidctlpar\sa200\sl276\slmult1 Stretch\par
+You have a class of students, and for each student you have their marks over the term, as a tuple of 5 numbers. The last number if the tuple is the end of term exam mark, and it's the most important. Write a lambda function to sort the student records by the last number in the tuple and use it as a key with the sort function.\par
+\par
+\par
+
+\pard\sa200\sl276\slmult1\f0\par
+}
+ 
