@@ -9,14 +9,13 @@
 import sys
 import re
 
-def main():
-    """ Demonstrate Regex groupings """
-    fh_in = open(r"C:\labs\words", mode="rt")
+def search_pattern(pattern, file=r"C:\labs\words"):
+    """ Display lines in a given file which match Regex """
+    fh_in = open(file, mode="rt")
 
-    # Iterate through file handle.
+    # Iterate through file handle
     for line in fh_in:
-        # Match 5 char palindromes.
-        m = re.search(r"^(.)(.).\2\1$", line) # Return None or RE Match object.
+        m = re.search(pattern, line) # Return None or RE Match object.
         if m:
             # The match object m has several methods with info about the match.
             print(f"Matched {m.group()} at char pos {m.start()} - {m.end()}, "
@@ -25,6 +24,11 @@ def main():
                   f"or {m.group(1)}") # More Pythonic way as 1 = 1st.
 
     fh_in.close()
+    return None
+
+def main():
+    """ Demonstrate Regex groupings """
+    search_pattern(r"^(.)(.).\2\1$") # Match lines 5 char palindromes.
     return None
 
 if __name__ == "__main__":

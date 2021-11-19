@@ -9,12 +9,12 @@
 import sys
 import re
 
-def search_pattern(pattern, file=r"C:\labs\words"):
+def main():
     """ Display lines in a given file which match Regex """
-    fh_in = open(file, mode="rt")
+    fh_in = open(r"C:\labs\words", mode="rt")
 
     # Pre-compile the pattern once if it does not change.
-    reobj = re.compile(pattern)
+    reobj = re.compile(r"^.{19}$")
 
     # Iterate through file handle
     for line in fh_in:
@@ -24,20 +24,6 @@ def search_pattern(pattern, file=r"C:\labs\words"):
             print(line, end="")
 
     fh_in.close()
-    return None
-
-def main():
-    """ Demonstrate different Regex patterns """
-    search_pattern(r"^the") # Match lines starting with 'the'.
-    search_pattern(r"^ing$") # Match lines ending with 'ing'.
-    search_pattern(r"^[A-Z]") # Match lines starting with a capital.
-    search_pattern(r"\.") # Match lines with a dot.
-    search_pattern(r"[aeiou][aeiou][aeiou]") # Match lines with 3 consecutive vowels.
-    search_pattern(r"[aeiou]{5,}")  # Match lines with at least 5 consecutive vowels.
-    search_pattern(r"^...................$") # Match lines with exactly 19 chars.
-    search_pattern(r"^.{19}$") # Match lines with excatly 19 chars.
-    search_pattern(r"^(.)(.).\2\1$") # Match lines 5 char palindromes.
-    search_pattern(r"^(.).*\1$") # Match lines starting/ending with same char.
     return None
 
 if __name__ == "__main__":

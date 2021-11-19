@@ -1,12 +1,10 @@
 #! /usr/bin/python
 # Author: DCameron, V1.0, email
 # Description: This program will demonstrate another example of
-# creating functions with DocStrings, parameter passing, return values
-# and Document Testing!
+# creating functions with DocStrings, parameter passing, return values.
 """
     Calculator program with Add, Divide and Multiply functionality.
 """
-
 import sys
 
 def multiply(x, z):
@@ -24,7 +22,7 @@ def multiply(x, z):
 def add(x, z):
     """
     Accepts two numeric parameters, adds them and returns sum.
-    >>> add(4, 3)
+    >>> add(4,3)
     7
 
     :param x (int|float): Integer or float
@@ -62,6 +60,7 @@ def main():
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod() # Automated doc testing.
+    doctest.testmod()
     main()
     sys.exit(0)
+
