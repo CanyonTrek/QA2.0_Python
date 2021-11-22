@@ -36,6 +36,9 @@ def divide(x, z):
     Accepts two numeric parameters, divides first by the second and returns result.
     >>> divide(4, 3)
     '1.333'
+    >>> divide(4, 0)
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
 
     :param x (int|float): Integer or float
     :param z (int|float): Integer or float
@@ -48,14 +51,9 @@ def main():
     print(f"4 * 3 = {multiply(4, 3)}")
     print(f"4 + 3 = {add(4, 3)}")
     print(f"4 / 3 = {divide(4, 3)}")
+    # print(f"4 / 3 = {divide(4, 0)}")
 
-    # An example of a docstring for the built-in print function.
-    # print(print.__doc__)
-    # An example of a docstring for the sys module.
-    # print(sys.__doc__)
-    # Displaying the docstring for user functions.
     print(multiply.__doc__)
-
     return None
 
 if __name__ == "__main__":
