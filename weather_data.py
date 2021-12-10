@@ -1,6 +1,6 @@
 #! /bin/python
-# Get the weather condition for a particular city, country
-# Name:        QA2.0, Donald Cameron
+# Name:        weather_data.py
+# Author:      QA2.0, Donald Cameron
 # Revision:    v1.0
 # Description: Prompt user for city/country and then will get the online weather
 #              from openweather.com, and the latest police incidents from
@@ -9,7 +9,7 @@
 # Requires:    This program requires a free API key to access online weather
 
 """
-    Docstring: This program/module will..
+    Get, display and save weather data for a city.
 """
 
 # Required libraries.
@@ -46,8 +46,8 @@ API_KEY= "396a2d3386e07f92777ed7fee73f7c67"   # For testing... and to be removed
 def get_weather():
     """ Get weather for a given city, country and return dict """
 
-    city = input("Please enter a city (eg. london): ")
-    country = input("Please enter a country (eg. gb/uk): ")
+    city = input("Please enter a city (eg. london): ") or "london"
+    country = input("Please enter a country (eg. gb/uk): ") or "gb"
 
     base_url = r"http://api.openweathermap.org/data/2.5/weather?"
     full_url = f"{base_url}q={city},{country},&appid={API_KEY}"
@@ -106,7 +106,7 @@ def display_weather(forecast:'dict')->'None':
         f_html = open('weather.html', 'w')
         f_html.write(outlook)
         f_html.close()
-    except IOError as err:
+    except Exception as err:
         print(f"Error: {err.args}", file=sys.stderr)
 
     # display weather forecast to new web browser tab

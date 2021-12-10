@@ -7,7 +7,7 @@
 
 import sys
 import bank_account
-
+# from bank_account import *    # TRY THIS!
 
 def display_info(bal, scode):
     """ Display bank account info """

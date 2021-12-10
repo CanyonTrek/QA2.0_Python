@@ -1,8 +1,12 @@
-#! /usr/bin/python
-# Author: DCameron, donald.cameron@qa.com, V1.0
-# Description: This program will 
+#! /bin/python
+# Name:        movies.py
+# Author:      QA2.0, Donald Cameron
+# Revision:    v1.0
+# Description: This program will download the top 250 movies from IMDB
+# and will allow the user to display the top-n ranked movies or search for
+# for their favourite movies.
 """
-    Docstring: Module to get Top 250 Movies Data
+    Download and display the Top 250 Movies Data from IMDB.
 """
 import sys
 import imdb

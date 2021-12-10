@@ -1,5 +1,7 @@
-#! /usr/bin/python
-# Author: QA2.0, DCameron, donald.cameron@qa.com, V1.0
+#! /bin/python
+# Name:        weather_db.py
+# Author:      QA2.0, Donald Cameron
+# Revision:    v1.0
 # Description: This module defines a Weather class for storing data
 # in a sqlite3 database.
 """

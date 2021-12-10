@@ -1,5 +1,7 @@
-#! /usr/bin/python
-# Author: DCameron, donald.cameron@qa.com, V1.0
+#! /bin/python
+# Name:        menu.py
+# Author:      QA2.0, Donald Cameron
+# Revision:    v1.0
 # Description: Fun demo for QA2.0 Python LIVE
 """
     Docstring: A fun program to allow users to choose from an
@@ -16,9 +18,9 @@ import movies
 menu = """
     Fun Data Menu
     -------------
-    1. Display Online Public Weather Data to Browser. DONE
-    2. Display Online Public UK Police Data to Screen. DONE
-    3. Display/Search top Movies from IMDb. DONE
+    1. Display Online Public Weather Data to Browser. 
+    2. Display Online Public UK Police Data to Screen. 
+    3. Display/Search top Movies from IMDb. 
 
 """
 

@@ -1,5 +1,7 @@
-#! /usr/bin/python
-# Author: DCameron, donald.cameron@qa.com, V1.0
+#! /bin/python
+# Name:        police_data.py
+# Author:      QA2.0, Donald Cameron
+# Revision:    v1.0
 # Description: This program will allow the user to retrieve publicly
 # available Police Forces, crime and stop and search information for
 # specific areas using simple HTTP GET requests.
