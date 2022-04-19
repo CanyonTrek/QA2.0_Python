@@ -2,7 +2,8 @@ import sys
 
 sys.path.append(r"C:\labs\projects\QA2_python")
 
-import weather_db
+from FUN_DEMO import weather_db
+
 data = weather_db.Weather_db()
 
 print(data)
