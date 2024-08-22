@@ -33,4 +33,3 @@ if __name__ == "__main__":
     cProfile.run("main()") # Display stats to console.
     # cProfile.run("main()", "stats.prof") # Write stats to file.
     sys.exit(0)
-

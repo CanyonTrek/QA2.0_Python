@@ -3,13 +3,14 @@
 # Author:      QA2.0, Donald Cameron
 # Revision:    v1.0
 # Description: This program will download the top 250 movies from IMDB
-# and will allow the user to display the top-n ranked movies or search for
+# and will allow the user to display the top-n ranked movies or search
 # for their favourite movies.
+# FIX:  pip install -U git+https://github.com/cinemagoer/cinemagoer
 """
     Download and display the Top 250 Movies Data from IMDB.
 """
 import sys
-import imdb
+from imdb import Cinemagoer
 import re
 
 movie_menu = """
@@ -22,11 +23,8 @@ movie_menu = """
 
 def get_movies():
     """ Get the top 250 movies online from IMDb """
-    ia = imdb.IMDb()
-    movies = {}
-
-    for rank, movie in enumerate(ia.get_top250_movies(), start=1):
-        movies[rank] = str(movie)
+    ia = Cinemagoer()
+    movies = { rank: str(movie) for rank, movie in enumerate(ia.get_top250_movies(), start=1) }
 
     return movies
 
@@ -75,10 +73,6 @@ def menu():
 
     return None
 
-def main():
-    menu()
-    return None
-
 if __name__ == "__main__":
-    main()
+    menu()
     sys.exit(0)
