@@ -50,14 +50,15 @@ def getCrimeByLoc():
     try:
         full_url = base_url + "crimes-at-location?lat=" + lat + "&lng=" + lon + "&date=" + date
         crime_data = requests.get(full_url)
+    except Exception as err:
+        print(f"Error, {err.args}", file=sys.stderr)
+        return None
+    else:
         for crime in crime_data.json():
             print(f"{crime['category']}, {crime['location_type']}, "
                   f"{crime['outcome_status']['category'] if crime['outcome_status'] else 'No Investigation' }, "
                   f"{crime['location']['street']['name']}")
         print()
-    except Exception as err:
-        print(f"Error, {err.args}", file=sys.stderr)
-        return None
 
     return None
 
