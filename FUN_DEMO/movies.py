@@ -21,6 +21,7 @@ movie_menu = """
     1. Get online movie ranking from IMDB
     2. Display top ranking movies
     3. Search for movie
+    Q. Quit
 """
 
 def get_movies():
@@ -29,10 +30,9 @@ def get_movies():
     base_url = "https://letterboxd.com/jack/list/official-top-250-films-with-the-most-fans/page/{}/"
     top_movies = {} # Movie info - 'title': [rank, rating, img_url]
 
-    # Loop through pages (assuming there are a few pages, update as needed)
-    for page_num in range(1, 4):  # Adjust range according to the number of pages
-        # Send a GET request to fetch the page content
-        url = base_url.format(page_num)
+    # Scrape the first 3 pages (adjust if necessary)
+    for page_num in range(1, 3):  # Adjust range according to the number of pages
+        url = base_url.format(page_num) # Send a GET request to fetch the page content
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
 
@@ -41,13 +41,10 @@ def get_movies():
 
         # Extract movie details
         for rank, movie in enumerate(movie_tags, start=1 + len(top_movies)):
-            # Extract the title from the 'alt' attribute of the image
             title = movie.find('img', class_='image').get('alt')
-            # Extract the link using the 'data-target-link' attribute
             link = movie.find('div', class_='really-lazy-load').get('data-target-link')
-            full_link = f"https://letterboxd.com{link}"
-            # Extract the rating using the 'data-owner-rating' attribute
             rating = movie.get('data-owner-rating')
+            full_link = f"https://letterboxd.com{link}"
 
             top_movies[title] = [rank, rating, full_link]
     return top_movies
@@ -79,7 +76,7 @@ def menu():
     films = {}
     while True:
         print(movie_menu)
-        option = input("Enter option (1-3, [qQ=quit]): ").strip().lower()
+        option = input("Enter option (1-3, [q=quit]): ").strip().lower()
 
         if option == "1":
             films = get_movies()
