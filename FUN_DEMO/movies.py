@@ -2,12 +2,11 @@
 # Name:        movies.py
 # Author:      QA2.0, Donald Cameron
 # Revision:    v1.0
-# Description: This program will download the top 250 movies from IMDB
+# Description: This program will download the top 250 movies from Letterboxd
 # and will allow the user to display the top-n ranked movies or search
 # for their favourite movies.
-# FIX:  pip install -U git+https://github.com/cinemagoer/cinemagoer
 """
-    Download and display the Top 250 Movies Data from IMDB.
+    Download and display the Top 250 Movies Data from Letterboxd.
 """
 import sys
 import requests
