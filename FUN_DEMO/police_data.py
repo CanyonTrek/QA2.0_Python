@@ -75,14 +75,15 @@ def getStopByArea():
     try:
         full_url = base_url + "stops-street?lat=" + lat + "&lng=" + lon + "&date=" + date
         stops_data = requests.get(full_url)
+    except Exception as err:
+        print(f"Error {err.args}", file=sys.stderr)
+        return None
+    else:
         for crime in stops_data.json():
             print(f"{crime['object_of_search']!s}: "
                   f"{crime['gender']} ({crime['age_range']}), {crime['type']}, "
                   f"{crime['location']['street']['name']}")
         print()
-    except Exception as err:
-        print(f"Error {err.args}", file=sys.stderr)
-        return None
     finally:
         print()
 
