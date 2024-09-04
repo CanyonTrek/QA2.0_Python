@@ -32,7 +32,7 @@ def main():
         menu = """
             Menu Options
             ------------
-            1. Get online movie ranking from IMDB
+            1. Get movie data from file
             2. Display top ranking movies
             3. Search for movie
         """
