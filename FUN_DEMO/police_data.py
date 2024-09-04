@@ -14,7 +14,7 @@ import sys
 import pprint
 
 app_name = "Welcome to PDCA - the Police Data Crime App"
-menu = """     
+MENU_POLICE = """     
     Police Data
     -----------
     1. List of Police Forces
@@ -94,7 +94,7 @@ def police_menu():
     while True:
         print(app_name)
         print("-" * len(app_name))
-        print(menu)
+        print(MENU_POLICE)
 
         option = input("Please choose an option (1-3 [qQ]=quit):")
         if option == "1":
