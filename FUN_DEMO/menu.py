@@ -8,7 +8,7 @@
     A fun program that allows users to choose from a variety of
     interesting options, including accessing the latest weather
     reports, crime data, and top movies. The program demonstrates
-    Python skills such as web scraping, API consumption, and
+    Python skills such as web scraping, API utilisation, and
     basic SQLite database interactions.
 """
 
@@ -18,7 +18,7 @@ import weather_data
 import movies
 
 # Displayed menu options
-MENU_TEXT = """
+MENU_TOP = """
     Fun Data Menu
     -------------
     1. Display Online Public Weather Data in Browser
@@ -30,7 +30,7 @@ MENU_TEXT = """
 def display_menu():
     """Displays the top-level menu and handles user input."""
     while True:
-        print(MENU_TEXT)
+        print(MENU_TOP)
         option = input("Enter an option (1-3, Q to quit): ").strip().lower()
 
         if option == "1":
