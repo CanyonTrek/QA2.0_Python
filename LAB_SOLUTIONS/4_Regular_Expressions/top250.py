@@ -1,7 +1,7 @@
 #! /bin/python
 # Name:        top250.py
 # Author:      QA2.0, Donald Cameron
-# Revision:    v2.0
+# Revision:    v2.5
 # Description: Download the top 250 movies chosen by IMDb users.
 """
     Download and display online movie information.
@@ -27,7 +27,9 @@ def main():
             title = movie.find('img', class_='image').get('alt')
             top_movies.append(title)
 
-    print(top_movies)
+    # Display movies
+    for movie in top_movies:
+        print(movie)
     return None
 
 if __name__ == "__main__":
