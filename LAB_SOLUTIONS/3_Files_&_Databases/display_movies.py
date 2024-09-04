@@ -4,7 +4,7 @@
 # Revision:    v1.0
 # Description: Display movie information
 """
-    IMDB movie information
+    Letterboxd movie information
 """
 import sys
 
