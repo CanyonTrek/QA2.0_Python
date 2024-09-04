@@ -1,7 +1,7 @@
 #! /bin/python
 # Name:        movies.py
 # Author:      QA2.0, Donald Cameron
-# Revision:    v2.0
+# Revision:    v2.1
 # Description: This program will download the top 250 movies from Letterboxd
 # and will allow the user to display the top-n ranked movies or search
 # for their favourite movies.
