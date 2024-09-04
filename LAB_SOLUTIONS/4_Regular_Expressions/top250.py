@@ -2,7 +2,7 @@
 # Name:        top250.py
 # Author:      QA2.0, Donald Cameron
 # Revision:    v2.5
-# Description: Download the top 250 movies chosen by IMDb users.
+# Description: Download the top 250 movies chosen by Letterboxd users.
 """
     Download and display online movie information.
 """
@@ -27,9 +27,13 @@ def main():
             title = movie.find('img', class_='image').get('alt')
             top_movies.append(title)
 
-    # Display movies
-    for movie in top_movies:
-        print(movie)
+    # Display movies  - CODE TO ADDED BELOW.
+    pattern = input("Enter movie search string: ")
+
+    for rank, movie in enumerate(top_movies, start=1):
+        m = re.search(pattern, str(movie), re.IGNORECASE)
+        if m:
+            print(f"{rank:>4}: {movie}")
     return None
 
 if __name__ == "__main__":
