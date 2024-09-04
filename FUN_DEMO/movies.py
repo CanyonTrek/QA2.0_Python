@@ -14,10 +14,10 @@ from bs4 import BeautifulSoup
 
 import re
 
-movie_menu = """
+MENU_MOVIES = """
     Movies Menu
     -----------
-    1. Get online movie ranking from IMDB
+    1. Get online movie ranking from Letterboxd
     2. Display top ranking movies
     3. Search for movie
     Q. Quit
@@ -30,7 +30,7 @@ def get_movies():
     top_movies = {} # Movie info - 'title': [rank, rating, img_url]
 
     # Scrape the first 3 pages (adjust if necessary)
-    for page_num in range(1, 3):  # Adjust range according to the number of pages
+    for page_num in range(1, 4):  # Adjust range according to the number of pages
         url = base_url.format(page_num) # Send a GET request to fetch the page content
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
@@ -64,17 +64,20 @@ def search_movies(pattern=r".", movies=None):
     if not movies:
         print("No movies to search.")
     else:
+        movies_matched = 0
         for movie, info in movies.items():
             rank, rating, link = info
             if re.search(pattern, movie, re.IGNORECASE):
                 print(f"{rank:>4} {movie:<s}, {rating}/10 - {link}")
+                movies_matched += 1
+        print(f"{movies_matched} movies matched")
     return None
 
 def menu():
     """ Movie Menu """
     films = {}
     while True:
-        print(movie_menu)
+        print(MENU_MOVIES)
         option = input("Enter option (1-3, [q=quit]): ").strip().lower()
 
         if option == "1":
