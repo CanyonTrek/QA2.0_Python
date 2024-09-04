@@ -20,7 +20,7 @@ import requests
 import weather_db
 import datetime
 
-menu = """
+MENU_WEATHER = """
     Weather Data
     ------------
     1. Get online weather data for city, country
@@ -121,7 +121,7 @@ def weather_menu():
     data = weather_db.Weather_db()  # Instantiate DB object
     city_w = {}
     while True:
-        print(menu)
+        print(MENU_WEATHER)
         option = input("Enter an option (1-7, [qQ=quit]): ")
         if option == "1":
             city_w = get_weather()
